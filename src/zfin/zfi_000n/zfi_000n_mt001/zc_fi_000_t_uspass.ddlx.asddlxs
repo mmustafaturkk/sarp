@@ -1,0 +1,54 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Entegrasyon Kullanıcı Bilgileri', 
+    typeNamePlural: 'Entegrasyon Kullanıcı Bilgileri'
+  }
+}
+annotate view ZC_FI_000_T_USPASS with
+{
+  @UI.facet: [ {
+    id: 'idIdentification', 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Entegrasyon Kullanıcı Bilgileri', 
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #MEDIUM, 
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: ''
+  } ]
+  EntType;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #MEDIUM, 
+    label: 'Kullanıcı'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Kullanıcı'
+  } ]
+  EntUser;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #MEDIUM, 
+    label: 'Şifre'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Şifre'
+  } ]
+  EntPass;
+  
+  @UI.hidden: true
+  EntBase64;
+  
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

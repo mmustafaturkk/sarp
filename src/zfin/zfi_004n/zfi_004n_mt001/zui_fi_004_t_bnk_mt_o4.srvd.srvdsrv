@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_FI_004_T_BNK_MT'
+define service ZUI_FI_004_T_BNK_MT_O4 {
+  expose ZC_FI_004_T_BNK_MT;
+}

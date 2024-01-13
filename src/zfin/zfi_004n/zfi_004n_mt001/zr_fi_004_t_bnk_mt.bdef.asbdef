@@ -1,0 +1,56 @@
+managed implementation in class ZBP_R_FI_004_T_BNK_MT unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_FI_004_T_BNK_MT
+persistent table zfi_004_t_bnk_mt
+draft table zfi_004_t_bnk_md
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+
+{
+  field ( mandatory : create )
+  TraVmsTransactionType,
+  TraTransactionType,
+  TraMt940transactionType;
+
+  field ( readonly )
+  LocalCreatedAt,
+  LocalCreatedBy,
+  LastChangedAt,
+  LocalLastChangedAt,
+  LocalLastChangedBy;
+
+  field ( readonly : update )
+  TraVmsTransactionType,
+  TraTransactionType,
+  TraMt940transactionType;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zfi_004_t_bnk_mt
+    {
+      TraVmsTransactionType   = tra_vms_transaction_type;
+      TraTransactionType      = tra_transaction_type;
+      TraMt940transactionType = tra_mt940transaction_type;
+      CompanyCode             = company_code;
+      CostCenter              = cost_center;
+      GlAccount               = gl_account;
+      TaxCode                 = tax_code;
+      LocalCreatedBy          = local_created_by;
+      LocalCreatedAt          = local_created_at;
+      LocalLastChangedBy      = local_last_changed_by;
+      LocalLastChangedAt      = local_last_changed_at;
+      LastChangedAt           = last_changed_at;
+    }
+}

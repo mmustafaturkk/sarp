@@ -1,0 +1,53 @@
+managed implementation in class ZBP_R_FI_000_T_USPASS unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_FI_000_T_USPASS
+persistent table zfi_000_t_uspass
+//with additional save
+draft table zfi_000_t_uspasd
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+
+{
+  field ( mandatory : create )
+  EntType;
+
+  field ( readonly )
+  EntBase64,
+  LocalCreatedAt,
+  LocalCreatedBy,
+  LastChangedAt,
+  LocalLastChangedAt,
+  LocalLastChangedBy;
+
+  field ( readonly : update )
+  EntType;
+
+
+  create;
+  update;
+  delete;
+
+  determination CreateBase64 on modify { create; field EntUser,EntPass; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zfi_000_t_uspass
+    {
+      EntType            = ent_type;
+      EntUser            = ent_user;
+      EntPass            = ent_pass;
+      EntBase64          = ent_base64;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}

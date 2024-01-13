@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_FI_000_T_USPASS'
+define service ZUI_FI_000_T_USPASS_O4 {
+  expose ZC_FI_000_T_USPASS;
+}

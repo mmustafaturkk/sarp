@@ -1,0 +1,12 @@
+@EndUserText.label: 'Banka Kokpiti Search Help'
+define service Zfi_004_sd_bank_cockpit_sh {
+  expose ZFI_004_DD_COST_CENTER     as costcenter;
+  expose ZFI_004_DD_PROFIT_CENTER   as profitcenter;
+  expose zfi_004_dd_special_gl_code as special_gl_code;
+  expose zfi_004_dd_supplier_sh     as supplier;
+  expose ZFI_004_DD_customer_sh     as customer;
+  expose ZFI_004_dd_currency_sh     as currency;
+  expose ZFI_004_dd_user_pass       as user_pass;
+  expose ZFI_004_DD_BANK_NAME_SH    as bank_name;
+  expose ZFI_004_dd_gl_account_sh   as gl_account;
+}
